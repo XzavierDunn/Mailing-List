@@ -8,9 +8,11 @@ import { ApiUrl } from '../../environments/environment.prod';
 })
 export class MainService {
 
-  constructor(private http: HttpClient) { }
+  data: any;
 
-  mail(value: any){
-    return this.http.post(`${ApiUrl}/addMail`, value)
-  }
-}
+  constructor(private _http: HttpClient) { }
+
+  mail(value: any) {
+    return this._http.post(`${ApiUrl}/mail/`, value);
+  };
+};

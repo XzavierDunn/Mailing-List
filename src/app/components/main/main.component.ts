@@ -9,8 +9,10 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+
   registerForm: FormGroup;
   sent: any;
+  added: any;
 
   constructor(private form: FormBuilder, private service: MainService, private snackbar: MatSnackBar) {
     this.createForm();
@@ -27,10 +29,22 @@ export class MainComponent implements OnInit {
   }
 
   onSubmit(){
-    this.snackbar.open('Adding you to the super dope mailing list', 'Done', {duration: 3000});
+    this.snackbar.open('Adding you to the super dope mailing list', 'Done');
     console.log(this.registerForm.value);
-    this.service.mail(this.registerForm.value);
-    this.sent = true;
+    try {
+    this.service.mail(this.registerForm.value).subscribe((val: any) => {
+      this.added = val;
+      this.snackbar.dismiss();
+      if (this.added['status'] == 'Success') {
+        this.snackbar.open("You've been added successfully", 'Done', {duration: 3000});
+      }
+    });
   }
-
+    catch(error) 
+    {
+      console.log(error);
+      console.log(error['error']);
+      console.log('Beans');
+    }
+  }
 }

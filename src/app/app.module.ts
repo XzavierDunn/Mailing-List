@@ -21,9 +21,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HeaderComponent } from './components/header/header.component';
+import { UnsubComponent } from './components/unsub/unsub.component';
 
 const routes = [
   { path: '', component: MainComponent },
+  { path: 'unsub', component: UnsubComponent },
   { path: '**', component: MainComponent }
 ]
 
@@ -31,7 +33,8 @@ const routes = [
   declarations: [
     AppComponent,
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    UnsubComponent
   ],
   imports: [
     BrowserModule,

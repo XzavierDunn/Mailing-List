@@ -1,1 +1,7 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.center {
+    margin: auto;
+    width: 50%;
+    margin-top: 5%;
+}

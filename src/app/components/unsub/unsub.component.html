@@ -1,0 +1,11 @@
+
+<div class="center">
+    <h1>Unsubscribe</h1> <h1 class="mt-2">Catch you on the flip flop.</h1>
+    <form (ngSubmit)='onSubmit()' [formGroup]='unsubForm'>
+        <div class="">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email" formControlName='email'>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div>

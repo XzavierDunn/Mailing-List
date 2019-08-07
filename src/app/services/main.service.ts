@@ -8,11 +8,14 @@ import { ApiUrl } from '../../environments/environment.prod';
 })
 export class MainService {
 
-  data: any;
-
   constructor(private _http: HttpClient) { }
 
   mail(value: any) {
     return this._http.post(`${ApiUrl}/mail/`, value);
   };
-};
+
+  unsub(value: any) {
+    return this._http.delete(`${ApiUrl}/mail/${value['email']}`);
+  };
+
+}
